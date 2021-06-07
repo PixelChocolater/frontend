@@ -39,6 +39,13 @@ body {
   background-color: transparent;
 }
 
+.background-img {
+  clip-path: polygon(0 13%, 100% 37%, 100% 93%, 0 70%);
+  background-color: #6c3483;
+  height: 200px;
+  background-repeat: no-repeat;
+}
+
 .header__title {
   background-color: transparent;
   font-size: 5rem;

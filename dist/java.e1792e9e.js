@@ -123,13 +123,70 @@ darkModeBtn.addEventListener('click', function () {
   if (darkModeBtn.classList.contains('btn__darkmode--dark')) {
     darkModeBtn.classList.remove('btn__darkmode--dark');
     document.documentElement.setAttribute("data-theme", "dark");
-    darkModeBtn.innerText('Dark');
+    darkModeBtn.innerHTML('Dark');
   } else {
     darkModeBtn.classList.add('btn__darkmode--dark');
     document.documentElement.removeAttribute("data-theme");
-    darkModeBtn.innerText('Light');
+    darkModeBtn.innerHTML('Light');
   }
 });
+var form = document.querySelector('.form');
+var formInputs = document.querySelectorAll('.form__input');
+var formData = {};
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  formInputs.forEach(function (input) {
+    var dataTitle = input.name;
+
+    if (input.name === 'file') {
+      formData[dataTitle] = input.files[0];
+      return;
+    }
+
+    formData[dataTitle] = input.value;
+  });
+  handleSubmit(formData);
+});
+
+var handleSubmit = function handleSubmit(formData) {
+  var itemData = {
+    title: formData.title,
+    description: formData.description
+  };
+  var fileData = new FormData();
+  fileData.append('image', formData.file);
+  itemFetchHandler(itemData, fileData);
+};
+
+var itemFetchHandler = function itemFetchHandler(itemData, fileData) {
+  fetch('http://localhost:8080/items', {
+    method: 'post',
+    body: JSON.stringify(itemData),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    if (data.id) {
+      fileData.append('name', data.id);
+      fileFetchHandler(fileData);
+    } else {
+      window.alert("Une erreur est survenue lors de l'insertion");
+    }
+  }).catch(function (error) {
+    console.log(error);
+  });
+};
+
+var fileFetchHandler = function fileFetchHandler(fileData) {
+  fetch('http://localhost:8080/upload', {
+    method: 'post',
+    body: fileData
+  }).catch(function (error) {
+    console.log(error);
+  });
+};
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
