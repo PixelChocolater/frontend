@@ -1,0 +1,135 @@
+:root {
+  --text-color: black;
+  --background-color: white;
+}
+
+[data-theme="dark"] {
+  --text-color: white;
+  --background-color: black;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  margin: 0;
+  padding: 0;
+  height: 15rem;
+  background-image: url(/banner.27d8ef75.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.header__title {
+  background-color: transparent;
+  font-size: 5rem;
+  color: white;
+}
+
+.header__button {
+  background-color: transparent;
+}
+
+.btn {
+  font-size: 1.3rem;
+  padding: 0.6rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+.btn__primary {
+  background-color: #6c3483;
+  border-radius: 5px;
+  color: white;
+  border: 2px solid #8e44ad;
+}
+
+.btn__primary:hover {
+  background-color: #8e44ad;
+}
+
+.section__title {
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.slider__horizontal {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.card {
+  margin: 10px;
+  border: 1px solid #8e44ad;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 255, 0.2);
+}
+
+.card:first-child {
+  background-color: #e8daef;
+}
+
+.card__img img {
+  width: 350px;
+}
+
+.card__body {
+  padding: 5px;
+}
+
+.card__title {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .header__title {
+    font-size: 3rem;
+  }
+
+  .slider__horizontal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+}
+
+
+/*# sourceMappingURL=/style.251b6741.css.map */

@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "lint": "stylelint styles/*.css",
+    "fix": "stylelint styles/*.css --fix"
+  },
+  "devDependencies": {
+    "@namics/stylelint-bem": "git://github.com/jean-smaug/stylelint-bem.git",
+    "@playwright/test": "^0.1102.0",
+    "autoprefixer": "^9.8.6",
+    "parcel-bundler": "1.12.5",
+    "postcss": "^7.0.35",
+    "prettier": "^2.2.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.4"
+  }
+}
